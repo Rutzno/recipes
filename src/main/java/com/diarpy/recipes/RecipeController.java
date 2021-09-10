@@ -1,20 +1,18 @@
 package com.diarpy.recipes;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@RequestMapping("/api")
 @RestController
 public class RecipeController {
     private Recipe recipe;
 
-    @PostMapping("/api/recipe")
+    @PostMapping("/recipe")
     public void postRecipe(@RequestBody Recipe r) {
         recipe = r;
     }
 
-    @GetMapping("/api/recipe")
+    @GetMapping("/recipe")
     public Recipe getRecipe() {
         return recipe;
     }
