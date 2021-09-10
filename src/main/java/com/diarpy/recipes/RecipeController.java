@@ -2,6 +2,12 @@ package com.diarpy.recipes;
 
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 9/9/2021
+ */
+
 @RequestMapping("/api")
 @RestController
 public class RecipeController {
