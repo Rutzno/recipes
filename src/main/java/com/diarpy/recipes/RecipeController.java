@@ -13,8 +13,8 @@ public class RecipeController {
     );
 
     @PostMapping("/recipe")
-    public void postRecipe(@RequestBody Recipe r) {
-        recipe = r;
+    public void postRecipe(@RequestBody Recipe recipe) {
+        this.recipe = recipe;
     }
 
     @GetMapping("/recipe")
