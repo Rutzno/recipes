@@ -7,6 +7,12 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 9/9/2021
+ */
+
 @RestController
 @RequestMapping("/api")
 public class RecipeController {
