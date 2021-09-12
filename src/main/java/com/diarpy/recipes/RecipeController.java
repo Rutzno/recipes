@@ -1,30 +1,30 @@
 package com.diarpy.recipes;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
-/**
- * @author Mack_TB
- * @version 1.0.7
- * @since 9/9/2021
- */
+import java.util.HashMap;
+import java.util.Map;
 
-@RequestMapping("/api")
 @RestController
+@RequestMapping("/api")
 public class RecipeController {
-    private Recipe recipe = new Recipe(
-            "Fresh Mint Tea",
-            "Light, aromatic and refreshing beverage, ...",
-            "boiled water, honey, fresh mint leaves",
-            "1) Boil water. 2) Pour boiling hot water into a mug. 3) Add fresh mint leaves. 4) Mix and let the mint leaves seep for 3-5 minutes. 5) Add honey and mix again."
-    );
+    private Map<Integer, Recipe> recipeMap = new HashMap<>();
 
-    @PostMapping("/recipe")
-    public void postRecipe(@RequestBody Recipe recipe) {
-        this.recipe = recipe;
+    @PostMapping("/recipe/new")
+    public Object postRecipe(@RequestBody Recipe recipe) {
+        int id = recipeMap.size() + 1;
+        recipeMap.put(id, recipe);
+        return String.format("{\"id\": %d}", id);
     }
 
-    @GetMapping("/recipe")
-    public Recipe getRecipe() {
-        return recipe;
+    @GetMapping("/recipe/{id}")
+    public Recipe getRecipe(@PathVariable int id) {
+        if (id > recipeMap.size()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                    "Recipe not found for id = " + id);
+        }
+        return recipeMap.get(id);
     }
 }
