@@ -5,8 +5,13 @@ import com.diarpy.recipes.businessLayer.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
+
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 9/9/2021
+ */
 
 @RestController
 @RequestMapping("/api")
