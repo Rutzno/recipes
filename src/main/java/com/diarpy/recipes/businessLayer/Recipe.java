@@ -1,4 +1,4 @@
-package com.diarpy.recipes;
+package com.diarpy.recipes.businessLayer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,5 +1,6 @@
-package com.diarpy.recipes;
+package com.diarpy.recipes.presentation;
 
+import com.diarpy.recipes.businessLayer.Recipe;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
