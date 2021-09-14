@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author Mack_TB
@@ -38,5 +39,21 @@ public class RecipeController {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     public void deleteRecipe(@PathVariable long id) {
         recipeService.deleteRecipeById(id);
+    }
+
+    @PutMapping("/recipe/{id}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public void updateRecipe(@PathVariable long id, @Valid @RequestBody Recipe recipe) {
+        recipeService.updateRecipe(id, recipe);
+    }
+
+    @GetMapping("/recipe/search/")
+    public List<Recipe> searchRecipeByCategory(@RequestParam(name = "category") String param) {
+        return recipeService.searchRecipesBy("category", param);
+    }
+
+    @GetMapping("/recipe/search/")
+    public List<Recipe> searchRecipeByName(@RequestParam(name = "name") String param) {
+        return recipeService.searchRecipesBy("name", param);
     }
 }
