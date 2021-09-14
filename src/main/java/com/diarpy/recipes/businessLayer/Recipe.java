@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -30,6 +31,11 @@ public class Recipe {
 
     @NotBlank(message = "Name is mandatory")
     private String name;
+
+    @NotBlank(message = "Category is mandatory")
+    private String category;
+
+    private LocalDateTime date;
 
     @NotBlank(message = "Description is mandatory")
     private String description;
