@@ -52,8 +52,8 @@ public class RecipeController {
         return recipeService.searchRecipesBy("category", param);
     }
 
-    @GetMapping("/recipe/search/")
+   /* @GetMapping("/recipe/search/")
     public List<Recipe> searchRecipeByName(@RequestParam(name = "name") String param) {
         return recipeService.searchRecipesBy("name", param);
-    }
+    }*/
 }
