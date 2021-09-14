@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 /**
  * @author Mack_TB
  * @version 1.0.7
@@ -35,5 +37,32 @@ public class RecipeService {
     public void deleteRecipeById(Long id) {
         Recipe recipe = findRecipeById(id);
         recipeRepository.delete(recipe);
+    }
+
+    public void updateRecipe(Long id, Recipe recipe) {
+        Recipe storedRecipe = findRecipeById(id);
+
+        storedRecipe.setName(recipe.getName());
+        storedRecipe.setCategory(recipe.getCategory());
+        storedRecipe.setDescription(recipe.getDescription());
+        storedRecipe.setIngredients(recipe.getIngredients());
+        storedRecipe.setDirections(recipe.getDirections());
+
+        recipeRepository.save(storedRecipe);
+    }
+
+    public List<Recipe> searchRecipesBy(String a, String param) {
+        List<Recipe> recipes;
+        switch (a) {
+            case "category":
+                recipes = recipeRepository.findRecipeByCategoryOrderByDateDesc(param);
+                break;
+            case "name":
+                recipes = recipeRepository.findRecipeByNameOrderByDateDesc(param);
+                break;
+            default:
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "No such name or category");
+        }
+        return recipes;
     }
 }
