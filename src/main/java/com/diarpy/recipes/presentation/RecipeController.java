@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Mack_TB
@@ -48,12 +49,8 @@ public class RecipeController {
     }
 
     @GetMapping("/recipe/search/")
-    public List<Recipe> searchRecipeByCategory(@RequestParam(name = "category") String param) {
-        return recipeService.searchRecipesBy("category", param);
+    public List<Recipe> searchRecipeByCategory(@RequestParam Map<String, String> allParams) {
+        return recipeService.searchRecipesBy(allParams);
     }
 
-   /* @GetMapping("/recipe/search/")
-    public List<Recipe> searchRecipeByName(@RequestParam(name = "name") String param) {
-        return recipeService.searchRecipesBy("name", param);
-    }*/
 }
