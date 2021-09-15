@@ -41,7 +41,7 @@ public class Recipe {
     private String description;
 
     @NotNull(message = "Ingredients shouldn't be null")
-    @Size(min = 1, message = "Minimal size should be 1")
+    @Size(min = 1, message = "Recipe must have at least an ingredient")
     @ElementCollection
     private List<String> ingredients;
 
