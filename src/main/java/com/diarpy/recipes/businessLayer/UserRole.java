@@ -9,6 +9,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 9/9/2021
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
