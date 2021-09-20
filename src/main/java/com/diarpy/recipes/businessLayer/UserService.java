@@ -8,6 +8,12 @@ import org.springframework.web.server.ResponseStatusException;
 import com.diarpy.recipes.persistance.UserRepository;
 import com.diarpy.recipes.persistance.UserRoleRepository;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 9/9/2021
+ */
+
 @Service
 public class UserService {
 
