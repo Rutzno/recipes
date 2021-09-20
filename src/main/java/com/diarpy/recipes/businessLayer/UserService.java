@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import recipes.persistance.UserRepository;
-import recipes.persistance.UserRoleRepository;
+import com.diarpy.recipes.persistance.UserRepository;
+import com.diarpy.recipes.persistance.UserRoleRepository;
 
 @Service
 public class UserService {
