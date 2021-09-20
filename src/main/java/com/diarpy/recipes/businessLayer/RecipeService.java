@@ -33,6 +33,7 @@ public class RecipeService {
     public Recipe save(Recipe newRecipe, Authentication authentication) {
         User user = userRepository.findByEmail(authentication.getName());
         newRecipe.setUser(user);
+        newRecipe.setDate(LocalDateTime.now());
         return recipeRepository.save(newRecipe);
     }
 

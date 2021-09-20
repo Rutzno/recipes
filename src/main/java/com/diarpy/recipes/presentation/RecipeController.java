@@ -36,7 +36,6 @@ public class RecipeController {
     @PostMapping("/recipe/new")
     public Object postRecipe(@Valid @RequestBody Recipe recipe,
                              Authentication authentication) {
-        recipe.setDate(LocalDateTime.now());
         Recipe newRecipe = recipeService.save(recipe, authentication);
         return String.format("{\"id\": %d}", newRecipe.getId());
     }
