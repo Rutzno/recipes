@@ -11,6 +11,12 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 9/9/2021
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
