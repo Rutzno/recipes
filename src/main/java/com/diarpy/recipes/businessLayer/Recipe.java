@@ -50,4 +50,8 @@ public class Recipe {
     @ElementCollection
     private List<String> directions;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private User user;
 }
