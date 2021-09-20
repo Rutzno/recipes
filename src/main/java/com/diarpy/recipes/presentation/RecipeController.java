@@ -23,8 +23,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class RecipeController {
-    final RecipeService recipeService;
-    final UserService userService;
+    private final RecipeService recipeService;
+    private final UserService userService;
 
     @Autowired
     public RecipeController(RecipeService recipeService,
