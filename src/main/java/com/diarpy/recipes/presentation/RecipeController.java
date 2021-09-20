@@ -34,7 +34,8 @@ public class RecipeController {
     }
 
     @PostMapping("/recipe/new")
-    public Object postRecipe(@Valid @RequestBody Recipe recipe, Authentication authentication) {
+    public Object postRecipe(@Valid @RequestBody Recipe recipe,
+                             Authentication authentication) {
         recipe.setDate(LocalDateTime.now());
         Recipe newRecipe = recipeService.save(recipe, authentication);
         return String.format("{\"id\": %d}", newRecipe.getId());
@@ -47,13 +48,16 @@ public class RecipeController {
 
     @DeleteMapping("/recipe/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void deleteRecipe(@PathVariable long id, Authentication authentication) {
+    public void deleteRecipe(@PathVariable long id,
+                             Authentication authentication) {
         recipeService.deleteRecipeById(id, authentication);
     }
 
     @PutMapping("/recipe/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void updateRecipe(@PathVariable long id, @Valid @RequestBody Recipe recipe, Authentication authentication) {
+    public void updateRecipe(@PathVariable long id,
+                             @Valid @RequestBody Recipe recipe,
+                             Authentication authentication) {
         recipeService.updateRecipe(id, recipe, authentication);
     }
 
