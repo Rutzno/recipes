@@ -12,6 +12,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Mack_TB
+ * @version 1.0.7
+ * @since 9/9/2021
+ */
+
 @Service
 public class RecipeService {
     private final RecipeRepository recipeRepository;
